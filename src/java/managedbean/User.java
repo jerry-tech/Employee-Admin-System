@@ -120,7 +120,7 @@ public class User {
     public Connection getConnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=jsfEmp;user=sa;password=haansbro17");
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=jsfEmp;user=//AddUsername;password=//addPassword");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
         }
