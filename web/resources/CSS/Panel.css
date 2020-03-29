@@ -1,0 +1,32 @@
+*{
+  background: whitesmoke;
+  color: black;
+  font-family: monospace;
+}
+.form-control{
+    border:none;
+    border-bottom: 2px solid black;
+    background: whitesmoke;
+}
+.btnradio{
+    display:flex;
+    align-items: baseline;
+    font-weight:bold;
+    font-size:19px;
+}
+.form-check-label{
+    font-size:15px;
+}
+.update{
+    padding:10px 10px;
+    border:none;
+    background: blue;
+    color:white;
+}
+.delete{
+    padding:10px 10px;
+    border:none;
+    background: red;
+    color:white;
+}
+

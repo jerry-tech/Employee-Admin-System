@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputStylesheet library="CSS" name="/bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
+        <h:outputStylesheet library='CSS' name="Panel.css"></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        <!--form for editing records-->
+
+        <!--==============================================================================================-->
+       <!-- table for showing employee records-->
+            <h3 class="text-center text-info">Employee Records</h3>
+            <h:dataTable binding="#{table}" value="#{user.usersList()}" var="u" class="table table-responsive table-hover" id="myTable">
+
+                <h:column class="data">
+                    <f:facet name="header">EmpId</f:facet>
+                    <h:outputText class="usersdata" value="#{u.id}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText class="usersdata" value="#{u.fname}."></h:outputText><h:outputText value="#{u.lname}"></h:outputText>
+                </h:column>
+
+
+                <h:column class="data">
+                    <f:facet name="header">Age</f:facet>
+                    <h:outputText class="usersdata" value="#{u.age}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Gender</f:facet>
+                    <h:outputText class="usersdata" value="#{u.gender}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Status(M)</f:facet>
+                    <h:outputText class="usersdata" value="#{u.marital}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Address</f:facet>
+                    <h:outputText class="usersdata" value="#{u.address}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Tel-no</f:facet>
+                    <h:outputText class="usersdata" value="#{u.phone}"></h:outputText>
+                </h:column>
+
+                <h:column class="data">
+                    <f:facet name="header">Email-Add</f:facet>
+                    <h:outputText class="usersdata" value="#{u.email}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Update</f:facet>
+                    <h:form>
+                        <h:commandButton class="update" onclick="dist()" value="Update" action="#{user.edit(u.id)}"></h:commandButton>
+                    </h:form>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Delete</f:facet>
+                    <h:form>
+                        <h:commandButton value="Delete" onclick="return confirm('Are You Sure You Want To Delete This Particular Record')" action = "#{user.delete(u.id)}" class="delete"></h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+      
+    </h:body>
+</html>
+

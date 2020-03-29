@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>EMPLOYEE ADMIN SYSTEM</title>
+        <h:outputStylesheet library="CSS" name="/bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
+        <h:outputStylesheet library='CSS' name="Panel.css"></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        
+        <ui:include src="Header.xhtml"/>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h3 class="text-center text-primary mt-3">EMPLOYEE ADMIN SYSTEM</h3>
+
+                    <div class="alert alert-dismissible text-center">
+                        <!--<button type="button" class="close">knfhuihfuihfuhfuhf</button>-->
+                    </div>
+
+                </div>
+            </div>
+            <!--form used adding employee record-->
+            <div class="row">
+                <div class="col-md-3" id="first">
+                    <h3 class="text-center text-info">Add Records</h3>
+                    <h:form id="form">
+
+                        <div class="form-group">
+                            <!--<f:ajax event="keyup"> -->
+                            <h:outputLabel class="form-check-label">FirstName</h:outputLabel>
+                            <h:inputText id="first" value="#{user.fname}" required="true" requiredMessage="Please insert Your Firstname" class="form-control"></h:inputText>
+                            <h:message for="first" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                            <!--</f:ajax>-->
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">LastName</h:outputLabel>
+                            <h:inputText id="last" value="#{user.lname}" requiredMessage="Please insert Your LastName" class="form-control" required="true"></h:inputText>
+                            <h:message for="last" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>   
+
+                        <div class="form-group">   
+                            <h:outputLabel class="form-check-label">Age</h:outputLabel>
+                            <h:inputText id="age" value="#{user.age}" validatorMessage="Please insert Your Age between  18 and 60" class="form-control" requiredMessage="Please insert Your age" required="true">
+                            </h:inputText>
+                            <h:message for="age" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+                        <div>
+                            <h:outputLabel class="form-check-label">Gender</h:outputLabel>
+                            <aside class="btnradio">
+                                <h:selectOneRadio id="gend" value="#{user.gender}" required="true" requiredMessage="Please select a Particular Gender">
+                                    <figure>
+                                        <f:selectItem itemValue="male" itemLabel="Male"></f:selectItem><!-- adding radio buttons to the select one radio tag-->
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="female" itemLabel="Female"></f:selectItem><!-- adding radio buttons to the select one radio tag-->
+                                    </figure>
+                                </h:selectOneRadio>
+                            </aside>
+                            <h:message for="gend" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>  
+
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Department</h:outputLabel>
+                            <h:inputText value="#{user.department}" id="dept" class="form-control" required="true" requiredMessage="Please insert Your Department"></h:inputText>
+                            <h:message for="dept" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div>
+                            <h:outputLabel class="form-check-label">Marital-Status</h:outputLabel>
+                            <aside class="btnradio">
+                                <h:selectOneRadio value="#{user.marital}" id="marry" required="true" requiredMessage="Please select Your Marital Status">
+
+                                    <figure>
+                                        <f:selectItem itemValue="Married" itemLabel=" Married"></f:selectItem><!-- adding radio buttons to the select one radio tag-->
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="Single" itemLabel=" Single"></f:selectItem><!-- adding radio buttons to the select one radio tag-->
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="Divorced" itemLabel=" Divorced"></f:selectItem><!-- adding radio buttons to the select one radio tag-->
+                                    </figure>
+                                </h:selectOneRadio>                            
+                            </aside>
+                            <h:message for="marry" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Address</h:outputLabel>
+                            <h:inputTextarea value="#{user.address}" id="add" class="form-control" required="true" requiredMessage="Please Enter Your Address"></h:inputTextarea>
+                            <h:message for="add" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div> 
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Phone-Number</h:outputLabel>
+                            <h:inputText value="#{user.phone}" class="form-control" id="phone" required="true" validatorMessage="Phone Number Columns Must Follow this pattern [+234(0)7017525242]" requiredMessage="Please insert Your PhoneNumber [+234(0)7017525242]">
+                            </h:inputText>  
+                            <h:message for="phone" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Email-Address</h:outputLabel>
+                            <h:inputText value="#{user.email}" id="email" class="form-control" validatorMessage="Email Must Follow Pattern abcdf@gmail.com or abcd@yahoo.com" required="true" requiredMessage="Please Enter Your EmailAddress"></h:inputText>
+                            <h:message for="email" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+                        <div class="form-group">
+                            <h:commandButton id="submit-button" class="btn btn-primary" value="Submit" action="#{user.submit()}"></h:commandButton><!--button for submitting the form-->
+
+                        </div>
+
+                    </h:form>
+                </div><!-- Ending of the employee bio-data acceptance form-->
+                <!--=======================================================-->
+
+                <!--form for editing records-->
+                <div class="col-md-3 w3-display">
+                    <h3 class="text-center text-info">Edit Records</h3>
+                    <h:form>
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">FirstName</h:outputLabel>
+                            <h:inputText id="editfirst" value="#{editUser.fname}" required="true" class="form-control" requiredMessage="Please insert Your FirstName"></h:inputText>
+                            <h:message for="editfirst" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">LastName</h:outputLabel>
+                            <h:inputText id="editlast" value="#{editUser.lname}" class="form-control" requiredMessage="Please insert Your LastName"  required="true"></h:inputText>
+                            <h:message for="editlast" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Age</h:outputLabel>
+                            <h:inputText id="editage" value="#{editUser.age}" class="form-control" requiredMessage="Please insert Your Age" validatorMessage="Please insert Your Age between  18 and 60" required="true">
+                                <f:validateLongRange minimum="18" maximum="60"/><!-- setting the min and max number of age a user can enter-->  
+                            </h:inputText>
+                            <h:message for="editage" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div>
+                            <h:outputLabel class="form-check-label">Gender</h:outputLabel>
+                            <aside class="btnradio">
+                                <h:selectOneRadio value="#{editUser.gender}" id="btnradio" required="true" requiredMessage="Please select a Particular Gender">
+                                    <figure>
+                                        <f:selectItem itemValue="male" itemLabel="Male"></f:selectItem>
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="female" itemLabel="Female"></f:selectItem>
+                                    </figure>
+                                </h:selectOneRadio>
+                            </aside>
+                            <h:message for="btnradio" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Department</h:outputLabel>
+                            <h:inputText id="editdept" value="#{editUser.department}" class="form-control" required="true" requiredMessage="Please select a Particular Department"></h:inputText>
+                            <h:message for="editdept" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div>
+                            <h:outputLabel class="form-check-label">Marital-Status</h:outputLabel>
+                            <aside class="btnradio">
+                                <h:selectOneRadio value="#{editUser.marital}"  required="true" requiredMessage="Please select a Your Marital Status">
+                                    <figure>
+                                        <f:selectItem itemValue="Married" itemLabel="Married"></f:selectItem>
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="Single" itemLabel="Single"></f:selectItem>
+                                    </figure>
+                                    <figure>
+                                        <f:selectItem itemValue="Divorced" itemLabel="Divorced"></f:selectItem>
+                                    </figure>
+
+                                </h:selectOneRadio>
+                            </aside>
+                            <h:message for="btnradio" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Address</h:outputLabel>
+                            <h:inputTextarea id="editadd" value="#{editUser.address}" class="form-control" required="true" requiredMessage="Please Enter Your Address"></h:inputTextarea>
+                            <h:message for="editadd" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Phone-Number</h:outputLabel>
+                            <h:inputText  id="editphone" value="#{editUser.phone}" class="form-control" required="true" validatorMessage="Phone Number Columns Must Follow this pattern [+234(0)7017525242]" requiredMessage="Please insert Your PhoneNumber [+234(0)7017525242]"> 
+                                <f:validateRegex pattern="[+]{1}[2-4]{3}[0-9]{10}"/><!-- specifying the phone number pattern a user can enter-->
+                            </h:inputText>
+                            <h:message for="editphone" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel class="form-check-label">Email-Address</h:outputLabel>
+                            <h:inputText id="editemail" value="#{editUser.email}" class="form-control" required="true" requiredMessage="Please Enter Your EmailAddress"></h:inputText>
+                            <h:message for="editemail" style="color: red"></h:message><!-- placing the required message beneath the input-->
+                        </div>
+
+                        <div class="form-group">
+                            <h:commandButton id="submit-button" class="btn btn-primary" value="Submit" action="#{user.update(editUser)}"></h:commandButton>
+                        </div>
+
+                    </h:form>
+                </div><!-- Ending of the employee edit bio-data acceptance form-->
+
+                <!--==============================================================================================-->
+                <div class="div col-md-9"><!-- table for showing employee records-->
+                    <ui:include src="Result.xhtml"></ui:include>
+                 
+                </div>
+            </div>
+        </div>
+
+
+        <h:outputScript library='js' name='index.js'></h:outputScript><!-- adding js for a little functionality in the page-->
+
+    </h:body>
+</html>
+
+
